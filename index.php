@@ -235,16 +235,16 @@ function printLoanScreen($currentGame) {
     if ($canPayHalf > 0) {
 
         if ($currentGame->loanAmount > 100) {
-            print "<A id=\"gameButton\"  HREF=\"index.php?gameMode=PAYLOAN&payAmount=half&gameID=" . $currentGame->gameID . "\">PAY HALF</A> | ";
+            print "<A id=\"gameButton\"  HREF=\"index.php?gameMode=PAYLOAN&payAmount=half&gameID=" . $currentGame->gameID . "\">PAY HALF</A>&nbsp;&nbsp;&nbsp;";
         }
     }
     else if ($currentGame->cashOnHand > 99) {
-            print "<A id=\"gameButton\"  HREF=\"index.php?gameMode=PAYLOAN&payAmount=one&gameID=" . $currentGame->gameID . "\">PAY \$100</A> | ";   
+            print "<A id=\"gameButton\"  HREF=\"index.php?gameMode=PAYLOAN&payAmount=one&gameID=" . $currentGame->gameID . "\">PAY \$100</A>&nbsp;&nbsp;&nbsp;";   
     }
 
     if ($currentGame->loanAmount > 0){    
         if ($canPayAll > 0) {
-            print "<A id=\"gameButton\"  HREF=\"index.php?gameMode=PAYLOAN&payAmount=all&gameID=" . $currentGame->gameID . "\">PAY ALL</A> | "; 
+            print "<A id=\"gameButton\"  HREF=\"index.php?gameMode=PAYLOAN&payAmount=all&gameID=" . $currentGame->gameID . "\">PAY ALL</A>&nbsp;&nbsp;&nbsp;"; 
         }
     }
 
@@ -257,16 +257,16 @@ function printBankMenu($currentGame) {
     print "<h3>Bank Balance: <font color=green>" . numberToMoney($currentGame->cashInBank) . "</font></h3>";
     print "<h3>Cash: <font color=green>" . numberToMoney($currentGame->cashOnHand) . "</font></h3><BR>";
     print "<B>DEPOSIT:</B><BR><BR>";
-    if ($currentGame->cashOnHand > 99) { print "<A  id=\"gameButton\" HREF=\"index.php?gameMode=DEPOSIT&depositAmount=onehundred&gameID=" . $currentGame->gameID . "\">+ \$100</A>&nbsp;&nbsp;&nbsp; "; }
-    if ($currentGame->cashOnHand > 999) { print "<A id=\"gameButton\"  HREF=\"index.php?gameMode=DEPOSIT&depositAmount=onethousand&gameID=" . $currentGame->gameID . "\">+ \$1,000</A>&nbsp;&nbsp;&nbsp;"; }
-    if ($currentGame->cashOnHand > 9999) { print "<A id=\"gameButton\"  HREF=\"index.php?gameMode=DEPOSIT&depositAmount=tenthousand&gameID=" . $currentGame->gameID . "\">+ \$10,000</A>&nbsp;&nbsp;&nbsp;"; }
+    if ($currentGame->cashOnHand > 99 AND $currentGame->cashOnHand < 9999) { print "<A  id=\"gameButton\" HREF=\"index.php?gameMode=DEPOSIT&depositAmount=onehundred&gameID=" . $currentGame->gameID . "\">+ \$100</A>&nbsp;&nbsp;&nbsp; "; }
+    if ($currentGame->cashOnHand > 999) { print "<A id=\"gameButton\"  HREF=\"index.php?gameMode=DEPOSIT&depositAmount=onethousand&gameID=" . $currentGame->gameID . "\">+ \$1K</A>&nbsp;&nbsp;&nbsp;"; }
+    if ($currentGame->cashOnHand > 9999) { print "<A id=\"gameButton\"  HREF=\"index.php?gameMode=DEPOSIT&depositAmount=tenthousand&gameID=" . $currentGame->gameID . "\">+ \$10K</A>&nbsp;&nbsp;&nbsp;"; }
     if ($currentGame->cashOnHand > 1) { print "<A id=\"gameButton\"  HREF=\"index.php?gameMode=DEPOSIT&depositAmount=half&gameID=" . $currentGame->gameID . "\">+ HALF</A>&nbsp;&nbsp;&nbsp;"; }
     if ($currentGame->cashOnHand > 0) { print "<A id=\"gameButton\"  HREF=\"index.php?gameMode=DEPOSIT&depositAmount=all&gameID=" . $currentGame->gameID . "\">+ ALL</A>&nbsp;&nbsp;&nbsp;"; }
     
     print "<BR><BR><B>WITHDRAWL:</B><BR><BR>";
-    if ($currentGame->cashInBank > 99) { print "<A id=\"gameButton\"  HREF=\"index.php?gameMode=WITHDRAWL&withdrawlAmount=onehundred&gameID=" . $currentGame->gameID . "\">- \$100</A>&nbsp;&nbsp;&nbsp;"; }
-    if ($currentGame->cashInBank > 999) { print "<A id=\"gameButton\"  HREF=\"index.php?gameMode=WITHDRAWL&withdrawlAmount=onethousand&gameID=" . $currentGame->gameID . "\">- \$1,000</A>&nbsp;&nbsp;&nbsp;"; }
-    if ($currentGame->cashInBank > 9999) { print "<A id=\"gameButton\"  HREF=\"index.php?gameMode=WITHDRAWL&withdrawlAmount=tenthousand&gameID=" . $currentGame->gameID . "\">- \$10,000</A>&nbsp;&nbsp;&nbsp;"; }
+    if ($currentGame->cashInBank > 99 AND $currentGame->cashInBank < 9999) { print "<A id=\"gameButton\"  HREF=\"index.php?gameMode=WITHDRAWL&withdrawlAmount=onehundred&gameID=" . $currentGame->gameID . "\">- \$100</A>&nbsp;&nbsp;&nbsp;"; }
+    if ($currentGame->cashInBank > 999) { print "<A id=\"gameButton\"  HREF=\"index.php?gameMode=WITHDRAWL&withdrawlAmount=onethousand&gameID=" . $currentGame->gameID . "\">- \$1K</A>&nbsp;&nbsp;&nbsp;"; }
+    if ($currentGame->cashInBank > 9999) { print "<A id=\"gameButton\"  HREF=\"index.php?gameMode=WITHDRAWL&withdrawlAmount=tenthousand&gameID=" . $currentGame->gameID . "\">- \$10K</A>&nbsp;&nbsp;&nbsp;"; }
     if ($currentGame->cashInBank > 1) { print "<A id=\"gameButton\"  HREF=\"index.php?gameMode=WITHDRAWL&withdrawlAmount=half&gameID=" . $currentGame->gameID . "\">- HALF</A>&nbsp;&nbsp;&nbsp;"; }
     if ($currentGame->cashInBank > 0) { print "<A id=\"gameButton\"  HREF=\"index.php?gameMode=WITHDRAWL&withdrawlAmount=all&gameID=" . $currentGame->gameID . "\">- ALL</A>&nbsp;&nbsp;&nbsp;"; }
     print "<BR><BR><A id=\"gameButton\" HREF=\"index.php?gameMode=HOME&gameID=" . $currentGame->gameID . "\">LEAVE BANK</A>"; 
